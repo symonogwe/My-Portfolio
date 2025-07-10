@@ -11,24 +11,30 @@ import {
 import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
 import clientData from "../data/clientData";
-// import dynamic from "next/dynamic";
-
-// Dynamically import Silk with SSR off (if you're using Next.js)
-// Otherwise just import directly if using Vite
 import Silk from "./Silk";
 
+// Motion variants
 const MotionImage = motion(Image);
 const MotionButton = motion(Button);
+
+const HERO_HEIGHT = { base: "100vh", md: "100vh" };
 
 const HeroSection = () => {
   const { name, role, tagline, ctaText, image } = clientData.hero;
 
+  // Theme tokens
   const headingColor = useColorModeValue("brand.500", "brand.100");
   const textColor = useColorModeValue("gray.700", "whiteAlpha.900");
-  const roleColor = useColorModeValue("brand.300", "brand.100");
+  const gradientRole = useColorModeValue(
+    "linear(to-r, brand.500, brand.300, brand.100)",
+    "linear(to-r, brand.100, brand.300, brand.500)"
+  );
+
+  // The full static text for the heading
+  const heroText = `Hi, I’m ${name}`;
 
   return (
-    <Box position="relative" width="100%" height="100vh" overflow="hidden">
+    <Box position="relative" width="100%" minH={HERO_HEIGHT} overflow="hidden">
       {/* Silk Background Layer */}
       <Box
         position="absolute"
@@ -51,13 +57,13 @@ const HeroSection = () => {
       <Flex
         position="relative"
         zIndex={1}
-        minH="100vh"
+        minH={HERO_HEIGHT}
         align="center"
         justify="center"
         direction={{ base: "column", md: "row" }}
-        px={{ base: 6, md: 16 }}
+        px={{ base: 6, md: 24 }}
         py={{ base: 20, md: 0 }}
-        gap={{ base: 12, md: 20 }}
+        gap={{ base: 12, md: 24 }}
         backdropFilter="auto"
         backdropBlur="sm"
       >
@@ -65,55 +71,118 @@ const HeroSection = () => {
         <MotionImage
           src={image}
           alt={name}
-          boxSize={{ base: "180px", md: "240px" }}
+          boxSize={{ base: "200px", md: "280px", lg: "320px" }}
           borderRadius="full"
           objectFit="cover"
           initial={{ y: 0 }}
-          animate={{ y: [0, -10, 0] }}
+          animate={{ y: [0, -16, 0] }}
           transition={{
             repeat: Infinity,
-            duration: 3,
+            duration: 4,
             ease: "easeInOut",
           }}
-          shadow="xl"
+          shadow="2xl"
         />
 
         {/* Right Side Content */}
-        <Stack spacing={6} maxW="lg" textAlign={{ base: "center", md: "left" }}>
-          <Heading
-            fontSize={["2xl", "3xl", "5xl"]}
-            fontWeight="bold"
-            color={headingColor}
+        <Stack
+          spacing={8}
+          maxW={{ base: "100%", md: "600px", lg: "700px" }}
+          textAlign={{ base: "center", md: "left" }}
+          align={{ base: "center", md: "flex-start" }}
+          minH={{ base: "auto", md: "320px" }}
+          justify="center"
+        >
+          {/* Ghost Heading for layout stability */}
+          <Box
+            position="relative"
+            w="100%"
+            minH={{ base: "3.5em", md: "5.5em" }}
           >
-            <Typewriter
-              words={[`Hi, I’m ${name}`]}
-              loop={false}
-              cursor
-              cursorStyle="|"
-              typeSpeed={60}
-              deleteSpeed={50}
-              delaySpeed={1000}
-            />
-          </Heading>
+            <Heading
+              as="h1"
+              fontSize={{ base: "2.2rem", md: "4rem", lg: "5rem" }}
+              fontWeight="bold"
+              color="transparent"
+              visibility="hidden"
+              userSelect="none"
+              letterSpacing="tight"
+              lineHeight={1.1}
+              width="100%"
+              m={0}
+              p={0}
+              whiteSpace={{ base: "normal", md: "nowrap" }}
+              overflowWrap="break-word"
+              wordBreak="break-word"
+            >
+              {heroText}
+            </Heading>
+            {/* Typewriter heading absolutely on top */}
+            <Heading
+              as="h1"
+              fontSize={{ base: "2.2rem", md: "4rem", lg: "5rem" }}
+              fontWeight="bold"
+              color={headingColor}
+              position="absolute"
+              top={0}
+              left={0}
+              width="100%"
+              letterSpacing="tight"
+              lineHeight={1.1}
+              m={0}
+              p={0}
+              textAlign={{ base: "center", md: "left" }}
+              whiteSpace={{ base: "normal", md: "nowrap" }}
+              overflowWrap="break-word"
+              wordBreak="break-word"
+            >
+              <Typewriter
+                words={[heroText]}
+                loop={false}
+                cursor
+                cursorStyle="|"
+                typeSpeed={60}
+                deleteSpeed={50}
+                delaySpeed={1000}
+              />
+            </Heading>
+          </Box>
 
-          <Text fontSize="xl" fontWeight="semibold" color={roleColor}>
+          {/* Role with gradient effect */}
+          <Text
+            fontSize={{ base: "1.5rem", md: "2.1rem", lg: "2.5rem" }}
+            fontWeight="extrabold"
+            bgGradient={gradientRole}
+            bgClip="text"
+            mb={1}
+          >
             {role}
           </Text>
 
-          <Text fontSize="md" color={textColor} maxW="500px">
+          <Text
+            fontSize={{ base: "md", md: "lg", lg: "xl" }}
+            color={textColor}
+            maxW="500px"
+          >
             {tagline}
           </Text>
 
           <MotionButton
             size="lg"
-            px={8}
-            py={6}
+            px={10}
+            py={7}
+            fontSize={{ base: "lg", md: "xl" }}
             bg="brand.500"
             color="white"
-            _hover={{ bg: "brand.300" }}
-            whileHover={{ scale: 1.05 }}
-            transition="all 0.3s ease"
+            _hover={{
+              bg: "brand.300",
+              boxShadow: "0 4px 32px 0px #e9c46a50",
+              transform: "scale(1.06)",
+            }}
+            whileHover={{ scale: 1.08 }}
+            transition="all 0.3s cubic-bezier(.25,.8,.25,1)"
             alignSelf={{ base: "center", md: "flex-start" }}
+            shadow="md"
           >
             {ctaText}
           </MotionButton>
