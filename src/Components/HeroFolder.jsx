@@ -47,7 +47,7 @@ const HeroFolder = () => {
         // items={[ResumeCard]}
         // className="hero-folder"
 
-        color="#e9c46a"
+        color={folderColor}
         size={1.15}
         items={[
           <div
