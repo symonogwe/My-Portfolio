@@ -42,10 +42,34 @@ const HeroFolder = () => {
       justifyContent={{ base: "center", md: "flex-start" }}
     >
       <Folder
-        color={folderColor}
+        // color={folderColor}
+        // size={1.15}
+        // items={[ResumeCard]}
+        // className="hero-folder"
+
+        color="#e9c46a"
         size={1.15}
-        items={[ResumeCard]}
-        className="hero-folder"
+        items={[
+          <div
+            style={{
+              width: "100%",
+              height: "100%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontWeight: 700,
+              fontSize: "1rem",
+              cursor: "pointer",
+              background: "transparent",
+            }}
+            onClick={(e) => {
+              e.stopPropagation(); // Prevent folder from closing on click
+              window.open("/resume.pdf", "_blank");
+            }}
+          >
+            CV / Resume
+          </div>,
+        ]}
       />
     </Box>
   );
