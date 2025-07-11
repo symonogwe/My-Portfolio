@@ -12,6 +12,7 @@ import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
 import clientData from "../data/clientData";
 import Silk from "./Silk";
+import HeroFolder from "./HeroFolder";
 
 // Motion variants
 const MotionImage = motion(Image);
@@ -166,26 +167,7 @@ const HeroSection = () => {
           >
             {tagline}
           </Text>
-
-          <MotionButton
-            size="lg"
-            px={10}
-            py={7}
-            fontSize={{ base: "lg", md: "xl" }}
-            bg="brand.500"
-            color="white"
-            _hover={{
-              bg: "brand.300",
-              boxShadow: "0 4px 32px 0px #e9c46a50",
-              transform: "scale(1.06)",
-            }}
-            whileHover={{ scale: 1.08 }}
-            transition="all 0.3s cubic-bezier(.25,.8,.25,1)"
-            alignSelf={{ base: "center", md: "flex-start" }}
-            shadow="md"
-          >
-            {ctaText}
-          </MotionButton>
+          <HeroFolder />
         </Stack>
       </Flex>
     </Box>
