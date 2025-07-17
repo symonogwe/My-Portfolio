@@ -13,6 +13,8 @@ import { Typewriter } from "react-simple-typewriter";
 import clientData from "../data/clientData";
 import Silk from "./Silk";
 import HeroFolder from "./HeroFolder";
+import CircularTextButton from "./CircularTextButton";
+import SocialIcons from "./SocialIcons";
 
 // Motion variants
 const MotionImage = motion.create(Image);
@@ -169,6 +171,17 @@ const HeroSection = () => {
           </Text>
           <HeroFolder />
           {/* Circular text code */}
+          <Flex
+            w="100%"
+            justify={{ base: "center", md: "flex-start" }}
+            align="center"
+            mt={8}
+            gap={{ base: 6, md: 16 }}
+            direction={{ base: "column", sm: "row" }}
+          >
+            <CircularTextButton text="GET IN TOUCH" scrollTo="contact" />
+            <SocialIcons />
+          </Flex>
         </Stack>
       </Flex>
     </Box>
