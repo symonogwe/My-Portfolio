@@ -1,19 +1,16 @@
-// src/Components/HeroFolder.jsx
-
-import Folder from "./Folder"; // Path to your React Bits Folder component
+import Folder from "./Folder";
 import { useColorModeValue, Box } from "@chakra-ui/react";
 
-// Make sure you import "./Folder.css"; in Folder.jsx itself!
-
 const HeroFolder = () => {
-  // Use your main theme color here
-  const folderColor = useColorModeValue("#2a9d8f", "#e9c46a"); // Or from theme.js if preferred
+  const folderColor = useColorModeValue("#2a9d8f", "#e9c46a"); // Theme-driven
 
-  // The Resume card component (the paper inside the folder)
-  const resumeUrl = "/resume.pdf"; // Put resume.pdf in /public folder
+  // Card inside the folder
+  const resumeUrl = "/resume.pdf"; // Ensure this file exists in /public
 
+  // Make the "paper" keyboard and mouse accessible
   const ResumeCard = (
     <Box
+      as="button"
       bg="white"
       borderRadius="lg"
       boxShadow="md"
@@ -29,7 +26,18 @@ const HeroFolder = () => {
         color: "brand.500",
         transform: "scale(1.03)",
       }}
-      onClick={() => window.open(resumeUrl, "_blank")}
+      tabIndex={0}
+      aria-label="Open Resume PDF"
+      onClick={(e) => {
+        e.stopPropagation();
+        window.open(resumeUrl, "_blank", "noopener,noreferrer");
+      }}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          window.open(resumeUrl, "_blank", "noopener,noreferrer");
+        }
+      }}
     >
       View CV / Resume
     </Box>
@@ -42,34 +50,10 @@ const HeroFolder = () => {
       justifyContent={{ base: "center", md: "flex-start" }}
     >
       <Folder
-        // color={folderColor}
-        // size={1.15}
-        // items={[ResumeCard]}
-        // className="hero-folder"
-
         color={folderColor}
         size={1.15}
-        items={[
-          <div
-            style={{
-              width: "100%",
-              height: "100%",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontWeight: 700,
-              fontSize: "1rem",
-              cursor: "pointer",
-              background: "transparent",
-            }}
-            onClick={(e) => {
-              e.stopPropagation(); // Prevent folder from closing on click
-              window.open("/resume.pdf", "_blank");
-            }}
-          >
-            CV / Resume
-          </div>,
-        ]}
+        items={[ResumeCard]}
+        className="hero-folder"
       />
     </Box>
   );
