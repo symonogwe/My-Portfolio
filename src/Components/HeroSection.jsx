@@ -15,13 +15,13 @@ import Silk from "./Silk";
 import HeroFolder from "./HeroFolder";
 
 // Motion variants
-const MotionImage = motion(Image);
-const MotionButton = motion(Button);
+const MotionImage = motion.create(Image);
+const MotionButton = motion.create(Button);
 
 const HERO_HEIGHT = { base: "100vh", md: "100vh" };
 
 const HeroSection = () => {
-  const { name, role, tagline, ctaText, image } = clientData.hero;
+  const { name, role, tagline, image } = clientData.hero;
 
   // Theme tokens
   const headingColor = useColorModeValue("brand.500", "brand.100");
@@ -168,6 +168,7 @@ const HeroSection = () => {
             {tagline}
           </Text>
           <HeroFolder />
+          {/* Circular text code */}
         </Stack>
       </Flex>
     </Box>
