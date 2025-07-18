@@ -187,7 +187,7 @@ const SkillsSection = () => {
           >
             My Skills & Tech Stack
           </Heading>
-          <SimpleGrid columns={{ base: 2, sm: 3, md: 4, lg: 5 }} spacing={7}>
+          <SimpleGrid minChildWidth="148px" spacing={7} w="100%">
             {clientData.skills.map((skill, i) => (
               <MotionBox
                 key={skill.name}
