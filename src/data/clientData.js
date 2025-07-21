@@ -49,38 +49,38 @@ const clientData = {
     {
       title: "Marcelo Consultancy",
       description:
-        "A platform connecting health & social care professionals to hospitals and care homes. Includes job board, user profiles, and in-app messaging.",
+        "A smart staffing platform connecting hospitals, care homes, and schools with qualified professionals. Effortlessly manage placements, shifts, and compliance—all in one place.",
       liveUrl: "https://marceloconsultancy.co.uk/",
     },
     {
       title: "Game Hub",
       description:
-        "A modern corporate website for Nia Energies featuring smooth animations, responsive layouts, and seamless dark/light mode switching. Built with React, Chakra UI, and Framer Motion.",
+        "Discover, filter, and search video games by genre, platform, or popularity. Find your next favorite game quickly with advanced search and intuitive categories.",
       liveUrl: "https://symon-game-hub.vercel.app/",
     },
     {
       title: "To-do List",
       description:
-        "A fleet management dashboard for tracking vehicle activity, KPIs, and analytics. Designed with a mobile-first approach and custom chart components.",
+        "Organize your life with project-based to-do lists. Create projects, add tasks, and view your work by day or week for maximum productivity and clarity.",
       liveUrl: "https://symonogwe.github.io/To-Do-List/",
     },
     {
       title: "BattleShips Game",
       description:
-        "A client-facing portal for Jaguar Petroleum with account management, document uploads, and secure login. Integrates with Salesforce and ERPNext APIs.",
+        "A web-based twist on the classic Battleships board game. Build your fleet and challenge the computer in a battle of strategy and luck!",
       liveUrl: "https://symonogwe.github.io/Battleship-game/",
     },
 
     {
       title: "Weather App",
       description:
-        "A highly customizable personal portfolio template, with clientData.js powering all dynamic sections. Optimized for performance, SEO, and rapid deployment.",
+        "Get live weather updates for any city. Instantly view temperature, wind, sunrise, sunset, and moon data with a clean, intuitive interface.",
       liveUrl: "https://symonogwe.github.io/Weather-App/",
     },
     {
       title: "Tic Tac Toe",
       description:
-        "A highly customizable personal portfolio template, with clientData.js powering all dynamic sections. Optimized for performance, SEO, and rapid deployment.",
+        "A modern web version of the classic two-player TicTacToe game—simple, interactive, and perfect for quick fun.",
       liveUrl: "https://symonogwe.github.io/Tic-Tac-Toe/",
     },
   ],
