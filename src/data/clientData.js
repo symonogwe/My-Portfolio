@@ -45,6 +45,45 @@ const clientData = {
     { name: "Git & Github", icon: "SiGithub" },
     // Add more skills, set icon: null or leave undefined for text-only!
   ],
+  projects: [
+    {
+      title: "Marcelo Consultancy",
+      description:
+        "A platform connecting health & social care professionals to hospitals and care homes. Includes job board, user profiles, and in-app messaging.",
+      liveUrl: "https://marceloconsultancy.co.uk/",
+    },
+    {
+      title: "Game Hub",
+      description:
+        "A modern corporate website for Nia Energies featuring smooth animations, responsive layouts, and seamless dark/light mode switching. Built with React, Chakra UI, and Framer Motion.",
+      liveUrl: "https://symon-game-hub.vercel.app/",
+    },
+    {
+      title: "To-do List",
+      description:
+        "A fleet management dashboard for tracking vehicle activity, KPIs, and analytics. Designed with a mobile-first approach and custom chart components.",
+      liveUrl: "https://symonogwe.github.io/To-Do-List/",
+    },
+    {
+      title: "BattleShips Game",
+      description:
+        "A client-facing portal for Jaguar Petroleum with account management, document uploads, and secure login. Integrates with Salesforce and ERPNext APIs.",
+      liveUrl: "https://symonogwe.github.io/Battleship-game/",
+    },
+
+    {
+      title: "Weather App",
+      description:
+        "A highly customizable personal portfolio template, with clientData.js powering all dynamic sections. Optimized for performance, SEO, and rapid deployment.",
+      liveUrl: "https://symonogwe.github.io/Weather-App/",
+    },
+    {
+      title: "Tic Tac Toe",
+      description:
+        "A highly customizable personal portfolio template, with clientData.js powering all dynamic sections. Optimized for performance, SEO, and rapid deployment.",
+      liveUrl: "https://symonogwe.github.io/Tic-Tac-Toe/",
+    },
+  ],
 };
 
 export default clientData;
