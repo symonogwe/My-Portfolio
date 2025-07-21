@@ -38,6 +38,7 @@ const ProjectsSection = () => {
       <SimpleGrid
         columns={{ base: 1, sm: 2, lg: 3 }}
         spacing={10}
+        align="stretch"
         w="full"
         maxW="7xl"
         mx="auto"
