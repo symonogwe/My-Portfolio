@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useColorModeValue, useTheme } from "@chakra-ui/react";
+import { useColorModeValue, useToken } from "@chakra-ui/react";
 import { motion, useAnimation, useMotionValue } from "framer-motion";
 import { Link as ScrollLink } from "react-scroll";
 
@@ -8,23 +8,18 @@ const CircularTextButton = ({
   scrollTo = "contact",
   spinDuration = 18,
   size = 120,
-  separator = " • ", // change to your preferred separator
+  separator = " • ",
 }) => {
-  const theme = useTheme();
+  // Resolve actual color code for whiteAlpha.900 and brand.100
+  const [whiteAlpha900] = useToken("colors", ["whiteAlpha.900"]);
+  const [brand100] = useToken("colors", ["brand.100"]);
   const isLight = useColorModeValue(true, false);
 
-  // Use whiteAlpha.900 for everything in light mode, brand.100 in dark
-  const color = isLight
-    ? "whiteAlpha.900"
-    : theme.colors.brand?.["100"] ?? "#e9c46a";
-  const textColor = isLight
-    ? "whiteAlpha.900"
-    : theme.colors.brand?.["100"] ?? "#e9c46a";
+  const mainColor = isLight ? whiteAlpha900 : brand100;
 
   const controls = useAnimation();
   const rotation = useMotionValue(0);
 
-  // Split text into words, then to letters, add separator after each word including last
   const words = text.toUpperCase().split(" ").filter(Boolean);
   let displayArr = [];
   words.forEach((word) => {
@@ -58,7 +53,7 @@ const CircularTextButton = ({
           width: size,
           height: size,
           borderRadius: "50%",
-          color: textColor,
+          color: mainColor,
           cursor: "pointer",
           display: "flex",
           alignItems: "center",
@@ -66,7 +61,6 @@ const CircularTextButton = ({
           position: "relative",
           fontWeight: 700,
           userSelect: "none",
-          fontFamily: theme.fonts.heading,
         }}
         animate={controls}
         onMouseEnter={handleHoverStart}
@@ -89,7 +83,7 @@ const CircularTextButton = ({
                 top: y,
                 transform: `translate(-50%, -50%) rotate(${angle + 90}deg)`,
                 fontSize: 18,
-                color: textColor, // both main and separators
+                color: mainColor,
                 opacity: 1,
                 letterSpacing: "0.13em",
                 fontWeight: "900",
@@ -109,11 +103,11 @@ const CircularTextButton = ({
             top: "50%",
             width: size * 0.15,
             height: size * 0.15,
-            background: color,
+            background: mainColor,
             borderRadius: "50%",
             transform: "translate(-50%, -50%)",
             boxShadow: "0 2px 12px 0 #0002",
-            border: `2.5px solid ${textColor}`,
+            border: `2.5px solid ${mainColor}`,
             pointerEvents: "none",
           }}
         />
