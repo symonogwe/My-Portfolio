@@ -18,7 +18,9 @@ const iconMap = {
 };
 
 const SocialIcons = () => {
-  const iconColor = useColorModeValue("whiteAlpha.900", "brand.100");
+  // const iconColor = useColorModeValue("whiteAlpha.900", "brand.100");
+  const iconColor = useColorModeValue("brand.900", "brand.100");
+
   const iconHover = useColorModeValue("brand.900", "brand.300");
   return (
     <HStack spacing={5}>

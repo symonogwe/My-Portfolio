@@ -4,6 +4,7 @@ import Navbar from "./Components/Navbar";
 import SkillsSection from "./Components/SkillsSection";
 import ProjectsSection from "./Components/ProjectsSection";
 import ContactSection from "./Components/ContactSection";
+import Footer from "./Components/Footer";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <SkillsSection />
       <ProjectsSection />
       <ContactSection />
+      <Footer />
     </>
   );
 }
