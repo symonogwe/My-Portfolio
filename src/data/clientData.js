@@ -51,24 +51,28 @@ const clientData = {
       description:
         "A smart staffing platform connecting hospitals, care homes, and schools with qualified professionals. Effortlessly manage placements, shifts, and compliance—all in one place.",
       liveUrl: "https://marceloconsultancy.co.uk/",
+      image: "/assets/Marcelo.png",
     },
     {
       title: "Game Hub",
       description:
         "Discover, filter, and search video games by genre, platform, or popularity. Find your next favorite game quickly with advanced search and intuitive categories.",
       liveUrl: "https://symon-game-hub.vercel.app/",
+      image: "/assets/GameHub.png",
     },
     {
       title: "To-do List",
       description:
         "Organize your life with project-based to-do lists. Create projects, add tasks, and view your work by day or week for maximum productivity and clarity.",
       liveUrl: "https://symonogwe.github.io/To-Do-List/",
+      image: "/assets/To-Do.png",
     },
     {
       title: "BattleShips Game",
       description:
         "A web-based twist on the classic Battleships board game. Build your fleet and challenge the computer in a battle of strategy and luck!",
       liveUrl: "https://symonogwe.github.io/Battleship-game/",
+      image: "/assets/Battleships.png",
     },
 
     {
@@ -76,12 +80,14 @@ const clientData = {
       description:
         "Get live weather updates for any city. Instantly view temperature, wind, sunrise, sunset, and moon data with a clean, intuitive interface.",
       liveUrl: "https://symonogwe.github.io/Weather-App/",
+      image: "/assets/Weather-App.png",
     },
     {
       title: "Tic Tac Toe",
       description:
         "A modern web version of the classic two-player TicTacToe game—simple, interactive, and perfect for quick fun.",
       liveUrl: "https://symonogwe.github.io/Tic-Tac-Toe/",
+      image: "/assets/Tic-Tac-Toe.png",
     },
   ],
 };
