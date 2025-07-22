@@ -10,50 +10,45 @@ const CircularTextButton = ({
   size = 120,
   separator = " • ", // change to your preferred separator
 }) => {
-  // Brand theme colors
   const theme = useTheme();
-  const color = useColorModeValue(
-    theme.colors.brand?.["500"] ?? "#457b9d",
-    theme.colors.brand?.["100"] ?? "#e9c46a"
-  );
-  const textColor = useColorModeValue(
-    theme.colors.brand?.["900"] ?? "#1d3557",
-    theme.colors.brand?.["100"] ?? "#e9c46a"
-  );
+  const isLight = useColorModeValue(true, false);
+
+  // Use whiteAlpha.900 for everything in light mode, brand.100 in dark
+  const color = isLight
+    ? "whiteAlpha.900"
+    : theme.colors.brand?.["100"] ?? "#e9c46a";
+  const textColor = isLight
+    ? "whiteAlpha.900"
+    : theme.colors.brand?.["100"] ?? "#e9c46a";
+
   const controls = useAnimation();
   const rotation = useMotionValue(0);
 
-  // Split text into words, then to letters, but add separator after each word including last
+  // Split text into words, then to letters, add separator after each word including last
   const words = text.toUpperCase().split(" ").filter(Boolean);
   let displayArr = [];
-  words.forEach((word, idx) => {
-    // push each letter in the word
+  words.forEach((word) => {
     word
       .split("")
       .forEach((letter) =>
         displayArr.push({ char: letter, isSeparator: false })
       );
-    // push a separator *after every word* (even after last)
     displayArr.push({ char: separator, isSeparator: true });
   });
 
-  // Animation config
   const spin = (duration) => ({
     rotate: rotation.get() + 360,
     transition: { duration, ease: "linear", repeat: Infinity },
   });
 
-  // Always spin at steady speed
   useEffect(() => {
     controls.start(spin(spinDuration));
     // eslint-disable-next-line
   }, [spinDuration]);
 
-  // Speed up only while hovering, return to normal on leave
   const handleHoverStart = () => controls.start(spin(spinDuration * 0.5));
   const handleHoverEnd = () => controls.start(spin(spinDuration));
 
-  // Circular layout logic
   const radius = size / 2.1;
 
   return (
@@ -80,8 +75,8 @@ const CircularTextButton = ({
         aria-label={text}
         whileTap={{ scale: 0.95 }}
       >
-        {displayArr.map(({ char, isSeparator }, i) => {
-          const angle = (360 / displayArr.length) * i - 90; // start top
+        {displayArr.map(({ char }, i) => {
+          const angle = (360 / displayArr.length) * i - 90;
           const rad = (angle * Math.PI) / 180;
           const x = radius + radius * Math.cos(rad);
           const y = radius + radius * Math.sin(rad);
@@ -93,10 +88,10 @@ const CircularTextButton = ({
                 left: x,
                 top: y,
                 transform: `translate(-50%, -50%) rotate(${angle + 90}deg)`,
-                fontSize: isSeparator ? 18 : 17,
-                color: isSeparator ? textColor : color,
-                opacity: isSeparator ? 0.65 : 1,
-                letterSpacing: isSeparator ? "0.05em" : "0.17em",
+                fontSize: 18,
+                color: textColor, // both main and separators
+                opacity: 1,
+                letterSpacing: "0.13em",
                 fontWeight: "900",
                 pointerEvents: "none",
                 fontFamily: "inherit",

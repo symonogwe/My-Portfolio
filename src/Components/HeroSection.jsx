@@ -26,8 +26,8 @@ const HeroSection = () => {
   const { name, role, tagline, image } = clientData.hero;
 
   // Theme tokens
-  const headingColor = useColorModeValue("brand.500", "brand.100");
-  const textColor = useColorModeValue("gray.700", "whiteAlpha.900");
+  const headingColor = useColorModeValue("whiteAlpha.900", "brand.100");
+  const textColor = useColorModeValue("brand.100", "whiteAlpha.900");
   const gradientRole = useColorModeValue(
     "linear(to-r, brand.500, brand.300, brand.100)",
     "linear(to-r, brand.100, brand.300, brand.500)"
