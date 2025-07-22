@@ -23,7 +23,8 @@ const MotionBox = motion(Box);
 
 const Footer = () => {
   const year = new Date().getFullYear();
-  const bg = useColorModeValue("gray.50", "gray.900");
+  //   const bg = useColorModeValue("gray.50", "gray.900");
+  const bg = useColorModeValue("brand.300", "gray.900");
 
   const textColor = useColorModeValue("gray.600", "gray.300");
   const borderColor = useColorModeValue("gray.200", "gray.700");
