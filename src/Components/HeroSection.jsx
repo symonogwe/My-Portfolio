@@ -40,6 +40,7 @@ const HeroSection = () => {
     <Box position="relative" width="100%" minH={HERO_HEIGHT} overflow="hidden">
       {/* Silk Background Layer */}
       <Box
+        id="home"
         position="absolute"
         top={0}
         left={0}
