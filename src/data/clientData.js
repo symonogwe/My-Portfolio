@@ -12,11 +12,11 @@ const clientData = {
   socials: [
     {
       label: "LinkedIn",
-      href: "https://linkedin.com/in/your-username",
+      href: "https://www.linkedin.com/in/symon-opondi-61448b18b/",
     },
     {
       label: "GitHub",
-      href: "https://github.com/your-username",
+      href: "https://github.com/symonogwe",
     },
     {
       label: "Instagram",
@@ -28,7 +28,7 @@ const clientData = {
     },
     {
       label: "Medium",
-      href: "https://medium.com/@your-username",
+      href: "https://medium.com/",
     },
   ],
   skills: [
@@ -88,6 +88,36 @@ const clientData = {
         "A modern web version of the classic two-player TicTacToe game—simple, interactive, and perfect for quick fun.",
       liveUrl: "https://symonogwe.github.io/Tic-Tac-Toe/",
       image: "/assets/Tic-Tac-Toe.png",
+    },
+  ],
+  contact: [
+    {
+      type: "Email",
+      value: "symonogwe@gmail.com",
+      icon: "FaEnvelope",
+      link: "mailto:symonogwe@gmail.com",
+      color: "brand.500",
+    },
+    {
+      type: "WhatsApp",
+      value: "+254701567843",
+      icon: "FaWhatsapp",
+      link: "https://wa.me/254701567843",
+      color: "green.500",
+    },
+    {
+      type: "Phone",
+      value: "+254701567843",
+      icon: "FaPhone",
+      link: "tel:+254701567843",
+      color: "brand.900",
+    },
+    {
+      type: "LinkedIn",
+      value: "https://www.linkedin.com/in/symon-opondi-61448b18b/",
+      icon: "FaLinkedin",
+      link: "https://www.linkedin.com/in/symon-opondi-61448b18b/",
+      color: "blue.500",
     },
   ],
 };
