@@ -6,6 +6,7 @@ import {
   Link,
   useColorModeValue,
   Icon,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import * as FaIcons from "react-icons/fa";
@@ -22,6 +23,7 @@ const ContactSection = () => {
   const textColor = useColorModeValue("gray.800", "whiteAlpha.900");
   const hoverBg = useColorModeValue("brand.50", "gray.700");
   const hoverIconColor = useColorModeValue("brand.500", "brand.100");
+  const showMagnetLines = useBreakpointValue({ base: false, md: true });
 
   // MagnetLines: theme-aware and responsive!
   const lineColor = useColorModeValue("#f6c343", "#a8dadc");
@@ -41,32 +43,34 @@ const ContactSection = () => {
       justifyContent="center"
     >
       {/* MagnetLines Background */}
-      <Box
-        position="absolute"
-        inset={0}
-        zIndex={0}
-        pointerEvents="none"
-        w="100vw"
-        minH="100%"
-        h="100%"
-        overflow="hidden"
-        left="50%"
-        top="0"
-        style={{ transform: "translateX(-50%)" }} // ensures true center, covers edge-to-edge
-        opacity={0.3} // or tweak for your taste
-        filter="blur(0.3px)"
-      >
-        <MagnetLines
-          rows={18} // Increase for more density!
-          columns={32} // This fills ultra-wide screens
-          containerSize="100vw"
-          lineColor={lineColor}
-          lineWidth="0.3vmin" // thickness
-          lineHeight="3vmin" // length
-          baseAngle={0}
-          style={{ width: "100vw", height: "100%" }}
-        />
-      </Box>
+      {showMagnetLines && (
+        <Box
+          position="absolute"
+          inset={0}
+          zIndex={0}
+          pointerEvents="none"
+          w="100vw"
+          minH="100%"
+          h="100%"
+          overflow="hidden"
+          left="50%"
+          top="0"
+          style={{ transform: "translateX(-50%)" }} // ensures true center, covers edge-to-edge
+          opacity={0.3} // or tweak for your taste
+          filter="blur(0.3px)"
+        >
+          <MagnetLines
+            rows={18} // Increase for more density!
+            columns={32} // This fills ultra-wide screens
+            containerSize="100vw"
+            lineColor={lineColor}
+            lineWidth="0.3vmin" // thickness
+            lineHeight="3vmin" // length
+            baseAngle={0}
+            style={{ width: "100vw", height: "100%" }}
+          />
+        </Box>
+      )}
 
       {/* Foreground content */}
       <Box position="relative" zIndex={1} w="full">
