@@ -7,7 +7,7 @@ const clientData = {
     tagline:
       "I build fast, modern websites with beautiful design & performance in mind.",
     ctaText: "Let’s Work Together",
-    image: "/assets/profile-pic.jpg", // Add your photo here later
+    image: "/assets/profile-pic.jpeg", // Add your photo here later
   },
   socials: [
     {
